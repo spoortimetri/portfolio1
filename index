@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spoorti Metri | Portfolio</title>
+<style>
+:root{
+  --bg:#fbf6f0;--paper:#fffdf9;--ink:#3b3330;--muted:#7a6c66;
+  --rose:#e8b4b8;--peach:#f6d5bd;--sage:#cfe0cc;--butter:#f7ecc3;
+  --accent:#b5656d;--line:#ecdfd5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Times New Roman",Times,serif;
+  background:var(--bg);
+  background-image:radial-gradient(circle at 10% 0%,var(--peach) 0,transparent 35%),radial-gradient(circle at 100% 30%,var(--sage) 0,transparent 30%);
+  background-attachment:fixed;
+  color:var(--ink);line-height:1.65;font-size:18px;
+}
+nav{
+  position:sticky;top:0;z-index:10;
+  display:flex;justify-content:center;flex-wrap:wrap;gap:6px 22px;
+  padding:12px 16px;background:rgba(255,253,249,.92);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--line);
+}
+nav a{
+  color:var(--ink);text-decoration:none;font-size:17px;padding:2px 4px;
+  border-bottom:2px solid transparent;
+  transition:transform .25s,border-color .25s,color .25s;
+}
+nav a:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent)}
+.resume{
+  max-width:900px;margin:32px auto;background:var(--paper);
+  border:1px solid var(--line);border-radius:6px;
+  box-shadow:0 18px 40px rgba(181,101,109,.12);overflow:hidden;
+}
+header{
+  padding:48px 40px 32px;
+  background:linear-gradient(120deg,var(--peach),var(--rose) 60%,var(--butter));
+  text-align:center;animation:rise .9s ease both;
+}
+header h1{font-size:clamp(34px,7vw,52px);letter-spacing:2px;font-weight:700}
+header .role{font-size:21px;font-style:italic;margin-top:4px}
+.contact{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 14px;margin-top:22px}
+.contact a,.contact span{
+  color:var(--ink);text-decoration:none;font-size:16px;
+  background:rgba(255,253,249,.75);padding:6px 14px;border-radius:30px;
+  transition:transform .25s,background .25s;
+}
+.contact a:hover{transform:translateY(-3px) scale(1.04);background:#fff}
+section{padding:30px 40px;border-top:1px solid var(--line)}
+h2{font-size:24px;margin-bottom:16px;padding-bottom:6px;border-bottom:2px solid var(--rose);display:inline-block}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.show{opacity:1;transform:none}
+.item{
+  padding:14px 18px;margin-bottom:14px;border-left:4px solid var(--rose);
+  background:#fff8f1;border-radius:0 8px 8px 0;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.item:hover{transform:translateX(6px);box-shadow:0 8px 18px rgba(181,101,109,.15);border-color:var(--accent)}
+.item h3{font-size:19px}
+.item p{color:var(--muted);font-size:17px}
+.score{font-weight:700;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{padding:18px;border-radius:10px;background:var(--sage);transition:transform .3s,box-shadow .3s}
+.card:nth-child(2){background:var(--butter)}
+.card:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 12px 22px rgba(0,0,0,.08)}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{
+  padding:6px 16px;border-radius:30px;background:var(--butter);
+  border:1px solid var(--line);font-size:17px;
+  transition:transform .25s,background .25s;
+}
+.chips span:hover{transform:scale(1.08);background:var(--peach)}
+.skill-row{margin-bottom:14px}
+.skill-row strong{display:block;margin-bottom:6px}
+ul.plain{list-style:none}
+ul.plain li{padding:6px 0 6px 22px;position:relative}
+ul.plain li::before{content:"";position:absolute;left:0;top:16px;width:9px;height:9px;border-radius:50%;background:var(--rose)}
+.hobbies{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.hobbies div{
+  padding:14px;text-align:center;border-radius:10px;background:var(--rose);
+  overflow:visible;white-space:normal;transition:transform .3s;
+}
+.hobbies div:nth-child(2){background:var(--sage)}
+.hobbies div:nth-child(3){background:var(--butter)}
+.hobbies div:hover{transform:translateY(-5px) scale(1.04)}
+.declaration p{font-style:italic}
+.declaration .sign{margin-top:22px;text-align:right;font-weight:700;font-style:normal}
+footer{text-align:center;padding:18px;color:var(--muted);font-size:15px;background:#fff8f1}
+@keyframes rise{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+@media (max-width:600px){
+  body{font-size:17px}
+  header{padding:36px 20px 26px}
+  section{padding:24px 20px}
+  .resume{margin:12px 8px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#education">Education</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#certs">Certifications</a>
+  <a href="#hobbies">Hobbies</a>
+  <a href="#declaration">Declaration</a>
+</nav>
+
+<main class="resume">
+  <header>
+    <h1>Spoorti Metri</h1>
+    <p class="role">Computer Science Student</p>
+    <div class="contact">
+      <a href="mailto:spoortimetri298@gmail.com">spoortimetri298@gmail.com</a>
+      <a href="tel:+919148249894">9148249894</a>
+      <a href="https://github.com/spoortimetri" target="_blank" rel="noopener">github.com/spoortimetri</a>
+      <span>Siddanath, Tq: Kolhar, Dist: Vijayapur, Karnataka</span>
+    </div>
+  </header>
+
+  <section id="education" class="reveal">
+    <h2>Education</h2>
+    <div class="item">
+      <h3>BLDEA College, Vijayapur</h3>
+      <p>Currently pursuing a degree in Computer Science</p>
+    </div>
+    <div class="item">
+      <h3>Diploma in Computer Science &amp; Engineering</h3>
+      <p>Smt. S.R. Nirani Government Polytechnic, Bilagi</p>
+      <p><span class="score">83.20%</span> (5 semester diploma)</p>
+    </div>
+    <div class="item">
+      <h3>Secondary School Leaving Certificate</h3>
+      <p>M.D.R. School, Takkalaki</p>
+      <p><span class="score">90.4%</span></p>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Heart Disease Prediction System</h3>
+        <p>Predicts heart disease risk with a machine learning model trained on a Kaggle dataset, using Python and a Streamlit interface.</p>
+      </div>
+      <div class="card">
+        <h3>House Price Prediction System</h3>
+        <p>Estimates house prices from a Kaggle dataset, using Python and a Streamlit interface.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <h2>Technical &amp; Soft Skills</h2>
+    <div class="skill-row">
+      <strong>Languages</strong>
+      <div class="chips"><span>Python</span><span>Java</span><span>HTML/CSS</span></div>
+    </div>
+    <div class="skill-row">
+      <strong>Data Structures &amp; Algorithms</strong>
+      <div class="chips">
+        <span>Arrays</span><span>Linked Lists</span><span>Trees</span><span>Graphs</span><span>Sorting</span><span>Time/Space Complexity Analysis</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <strong>Tools &amp; Environments</strong>
+      <div class="chips"><span>Git</span><span>GitHub</span><span>VS Code</span><span>Jupyter Notebook</span></div>
+    </div>
+  </section>
+
+  <section id="certs" class="reveal">
+    <h2>Certification Courses</h2>
+    <p style="color:var(--muted);margin-bottom:8px">Infosys Springboard</p>
+    <ul class="plain">
+      <li>Python Fundamentals</li>
+      <li>Essentials of Cloud Computing</li>
+      <li>Introduction to Machine Learning</li>
+      <li>Deep Learning</li>
+      <li>Artificial Intelligence for All</li>
+    </ul>
+  </section>
+
+  <section id="hobbies" class="reveal">
+    <h2>Hobbies</h2>
+    <div class="hobbies">
+      <div>Listening to Songs</div>
+      <div>Watching Films</div>
+      <div>Reading</div>
+    </div>
+  </section>
+
+  <section id="declaration" class="reveal declaration">
+    <h2>Declaration</h2>
+    <p>I hereby declare that all the information given above is true and correct to the best of my knowledge.</p>
+    <p class="sign">Spoorti Metri</p>
+  </section>
+
+  <footer>Spoorti Metri &middot; Vijayapur, Karnataka</footer>
+</main>
+
+<script>
+const els=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})
+  },{threshold:.12});
+  els.forEach(el=>io.observe(el));
+}else{els.forEach(el=>el.classList.add('show'))}
+</script>
+</body>
+</html>
